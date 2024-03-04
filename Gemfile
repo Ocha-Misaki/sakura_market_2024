@@ -16,6 +16,7 @@ gem 'puma'
 gem 'redis'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
+gem 'importmap-rails'
 gem 'turbo-rails'
 
 group :development, :test do
