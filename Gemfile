@@ -7,6 +7,7 @@ gem 'rails', '~> 7.1.3.2'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'devise'
 gem 'haml-rails'
 gem 'jbuilder'
 gem 'jsbundling-rails'
@@ -19,6 +20,7 @@ gem 'turbo-rails'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'sgcop', github: 'SonicGarden/sgcop'
 end
