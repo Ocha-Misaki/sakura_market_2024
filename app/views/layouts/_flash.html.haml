@@ -1,0 +1,7 @@
+.container
+  - if flash['notice'].present?
+    .alert.alert-success
+      = notice
+  - elsif flash['alert'].present?
+    .alert.alert-danger
+      = alert

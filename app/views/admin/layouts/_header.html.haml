@@ -1,0 +1,9 @@
+%nav.navbar.navbar-expand-lg.navbar-light.border-bottom.mb-4.justify-content-md-between
+  .container
+    %ul.nav.nav-pills
+      - if admin_signed_in?
+        %li.nav-item
+          = button_to '管理者ログアウト', destroy_admin_session_path, method: :delete, class: "nav-link link-danger"
+      - else
+        %li.nav-item
+          = link_to 'ログイン', new_admin_session_path
