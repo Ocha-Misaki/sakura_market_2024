@@ -6,17 +6,20 @@ ruby '3.2.2'
 gem 'rails', '~> 7.1.3.2'
 
 gem 'bootsnap', require: false
+gem 'bootstrap4-kaminari-views'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'haml-rails'
+gem 'importmap-rails'
 gem 'jbuilder'
 gem 'jsbundling-rails'
+gem 'kaminari'
 gem 'pg'
 gem 'puma'
 gem 'redis'
+gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
-gem 'importmap-rails'
 gem 'turbo-rails'
 
 group :development, :test do
@@ -37,3 +40,5 @@ group :test do
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
 end
+
+gem 'dockerfile-rails', '>= 1.6', group: :development
