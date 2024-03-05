@@ -1,0 +1,7 @@
+inherit_gem:
+  sgcop: rails/rubocop.yml
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+  Max: 50
