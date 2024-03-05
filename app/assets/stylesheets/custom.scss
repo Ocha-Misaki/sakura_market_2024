@@ -1,1 +1,15 @@
 @import 'bootstrap/scss/bootstrap';
+
+/* ヘッダー */
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.6em;
+  color: #CF000E;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  text-decoration: none;
+}
