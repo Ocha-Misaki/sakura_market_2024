@@ -88,6 +88,8 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
+    acts_as_list (1.1.0)
+      activerecord (>= 4.2)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
@@ -363,6 +365,14 @@ GEM
       rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.18.1)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
@@ -418,6 +428,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts_as_list
   bootsnap
   bootstrap4-kaminari-views
   capybara
@@ -439,6 +450,7 @@ DEPENDENCIES
   rails-controller-testing
   redis
   rspec-rails
+  sassc-rails
   selenium-webdriver
   sgcop!
   simple_form
