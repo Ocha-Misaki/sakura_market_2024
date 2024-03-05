@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    root 'application#index'
+    root 'foods#index'
+    resources :foods do
+      member do
+        patch :move_higher
+        patch :move_lower
+      end
+    end
   end
 end
