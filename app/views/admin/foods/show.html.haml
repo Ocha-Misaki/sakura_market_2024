@@ -3,7 +3,7 @@
     .col-md-5.text-center
       .vstack.mt-4
         .p-2= link_to '編集', edit_admin_food_path(@food), class: "link-primary link-offset-1 me-1 text-decoration-none"
-        .p-2= button_to '削除', admin_food_path(@food), method: :delete, data: { turbo_confirm: "削除してよろしいですか？" }, class: "btn btn-danger"
+        .p-2= button_to '削除', admin_food_path(@food), method: :delete, data: { turbo_confirm: "本当に削除しますか？" } , class: "btn btn-danger"
     .col-md-5
       .mb-3
         = displayable_book_status_badge(@food)
