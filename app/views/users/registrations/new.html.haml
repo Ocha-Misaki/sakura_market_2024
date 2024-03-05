@@ -1,0 +1,14 @@
+.container
+  .fs-2.page-title 新規アカウント登録
+  = form_for(resource, as: resource_name, url: user_registration_path) do |f|
+    = render "users/shared/error_messages", resource: @user
+    .vstack-4
+      .mb-3
+        = f.label :メールアドレス, class: "form-label"
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+      .mb-3
+        = f.label :パスワード, class: "form-label"
+        = f.password_field :password, autocomplete: "current-password", class: 'form-control'
+      .mb-3
+        = f.submit "新規登録する", class: "btn btn-outline-danger"
+      = render "users/shared/links"
