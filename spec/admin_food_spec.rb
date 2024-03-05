@@ -17,6 +17,7 @@ RSpec.describe '管理者商品作成機能', type: :system do
         fill_in 'food_price', with: 100
         fill_in 'food_position', with: 1
         fill_in 'food_description', with: '美味しい'
+        attach_file 'food_image', Rails.root.join('spec/fixtures/images/cherry.jpg')
         expect do
           click_button '登録する'
         end.to change(Food, :count).by(1)
@@ -24,6 +25,7 @@ RSpec.describe '管理者商品作成機能', type: :system do
         visit admin_root_path
         add_food = Food.find_by(name: 'にんじん')
         within :test_id, dom_id(add_food, :admin) do
+          expect(page).to have_css 'img[src$="cherry.jpg"]'
           expect(page).to have_selector :test_id, dom_id(add_food, :displayable), text: '公開中'
           expect(page).to have_content 'にんじん'
           expect(page).to have_content '110円（税込）'
@@ -34,7 +36,7 @@ RSpec.describe '管理者商品作成機能', type: :system do
     end
 
     describe '商品編集' do
-      let(:food) { create(:food, :displayable) }
+      let(:food) { create(:food, :displayable, :attach_image) }
 
       it '商品詳細から遷移して、商品編集できる' do
         visit admin_food_path(food)
@@ -53,6 +55,7 @@ RSpec.describe '管理者商品作成機能', type: :system do
 
         visit admin_root_path
         within :test_id, dom_id(food, :admin) do
+          expect(page).to have_css 'img[src$="cherry.jpg"]'
           expect(page).to have_selector :test_id, dom_id(food, :displayable), text: '公開中'
           expect(page).to have_content '甘いにんじん'
           expect(page).to have_content '550円（税込）'
@@ -63,7 +66,7 @@ RSpec.describe '管理者商品作成機能', type: :system do
     end
 
     describe '商品削除' do
-      let(:food) { create(:food, :displayable) }
+      let(:food) { create(:food, :displayable, :attach_image) }
 
       it '商品を削除できる' do
         visit admin_food_path(food)
@@ -74,6 +77,7 @@ RSpec.describe '管理者商品作成機能', type: :system do
         end.to change(Food, :count).by(-1)
 
         visit admin_root_path
+        expect(page).not_to have_css 'img[src$="cherry.jpg"]'
         expect(page).not_to have_content 'にんじん'
         expect(page).not_to have_content '110円（税込）'
         expect(page).not_to have_link '←'

@@ -5,9 +5,14 @@ FactoryBot.define do
     description { '美味しい' }
     position { 1 }
     displayable { false }
+    image { Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/images/cherry.jpg'), 'image/jpg') }
 
     trait :displayable do
       displayable { true }
+    end
+
+    trait :attach_image do
+      image { Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/images/cherry.jpg'), 'image/jpg') }
     end
   end
 end
