@@ -5,11 +5,13 @@ ruby '3.2.2'
 
 gem 'rails', '~> 7.1.3.2'
 
+gem "acts_as_list"
 gem 'bootsnap', require: false
 gem 'bootstrap4-kaminari-views'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'haml-rails'
+gem "image_processing"
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'jsbundling-rails'
@@ -17,6 +19,7 @@ gem 'kaminari'
 gem 'pg'
 gem 'puma'
 gem 'redis'
+gem "sassc-rails"
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'

@@ -2,6 +2,12 @@
 ja:
   activerecord:
     attributes:
+      food:
+        displayable: 公開する
+        name: 商品名
+        position: 表示順
+        price: 価格
+        description: 商品説明
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

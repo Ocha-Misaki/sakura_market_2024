@@ -4,6 +4,8 @@
       .col-sm-4.mb-3.mb-sm-0
         .card.mb-4
           = link_to admin_food_path(food), class: 'text-decoration-none', 'data-test-id': dom_id(food, :admin) do
+            .card-img-top
+              = render "shared/image", food: food
             .card-body.ms-2
               .mx-3.mb-2= displayable_book_status_badge(food)
               .fs-6.card-text.mx-3.fw-semibold= food.name

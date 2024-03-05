@@ -1,7 +1,10 @@
 %nav.navbar.navbar-expand-lg.navbar-light.border-bottom.mb-4.justify-content-md-between
   .container
+    = link_to 'sakura_market 管理画面', admin_root_path, id: "logo"
     %ul.nav.nav-pills
       - if admin_signed_in?
+        %li.nav-item
+          = link_to "商品新規作成", new_admin_food_path, class: "nav-link link-success"
         %li.nav-item
           = button_to '管理者ログアウト', destroy_admin_session_path, method: :delete, class: "nav-link link-danger"
       - else

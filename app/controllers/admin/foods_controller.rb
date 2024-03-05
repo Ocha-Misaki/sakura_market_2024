@@ -53,6 +53,6 @@ class Admin::FoodsController < Admin::ApplicationController
   end
 
   def food_params
-    params.require(:food).permit(:name, :displayable, :price, :description, :position)
+    params.require(:food).permit(:displayable, :name, :price, :description, :position, :image)
   end
 end

@@ -1,17 +1,17 @@
 .container
   .row.g-0.ms-3.mt-4.mb-5
-    .col-md-5.text-center
-      .vstack.mt-4
-        .p-2= link_to '編集', edit_admin_food_path(@food), class: "link-primary link-offset-1 me-1 text-decoration-none"
-        .p-2= button_to '削除', admin_food_path(@food), method: :delete, data: { turbo_confirm: "削除してよろしいですか？" }, class: "btn btn-danger"
-    .col-md-5
+    .col-md-6
+      = render 'shared/image', food: @food, type: :display, size: "400x200"
+    .col-md-6
       .mb-3
         = displayable_book_status_badge(@food)
       .fs-3.mb-3
         = @food.name
       .fs-5.mb-4
         = price_including_tax_text(@food)
-    .row.ms-md-5.ms-sm-2.mt-4.mb-4
-      .col-md-5.me-3
-        .fs-5.fw-bolder 概要
-        .fs-6.lh-lg= @food.description
+      .hstack.mt-4
+        .p-2= link_to '編集', edit_admin_food_path(@food), class: "link-primary link-offset-1 me-1 text-decoration-none"
+        .p-2= button_to '削除', admin_food_path(@food), method: :delete, data: { turbo_confirm: "本当に削除しますか？" } , class: "btn btn-danger"
+    .row.mt-4.mb-4
+      .fs-5.fw-bolder 概要
+      .fs-6.lh-lg= @food.description
