@@ -1,0 +1,5 @@
+- size ||= "130x180"
+- type ||= :thumbnail
+.book-img
+  - image = food.image.attached? ? food.image.variant(type) : "no-img.jpg"
+  = image_tag(image, class: "object-fit-cover", size: size)
