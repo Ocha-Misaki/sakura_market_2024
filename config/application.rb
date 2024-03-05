@@ -23,6 +23,7 @@ module SakuraMarket
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
     config.time_zone = 'Asia/Tokyo'
+    config.active_storage.variant_processor = :vips
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
@@ -39,7 +40,6 @@ module SakuraMarket
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-    config.active_storage.variant_processor = :vips
   end
 end
 
