@@ -11,6 +11,7 @@ gem 'bootstrap4-kaminari-views'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'haml-rails'
+gem "image_processing"
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'jsbundling-rails'
