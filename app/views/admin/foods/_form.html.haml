@@ -1,0 +1,11 @@
+- url = food.new_record? ? admin_foods_path : admin_food_path(food)
+- method = food.new_record? ? :post : :patch
+
+= simple_form_for(food, url: url, method: method) do |f|
+  = render 'admin/layouts/error', resource: food
+  = f.input :displayable, as: :boolean
+  = f.input :name
+  = f.input :price
+  = f.input :position
+  = f.input :description, input_html: {rows: 10}
+  = f.button :submit, class: "btn btn-outline-success"

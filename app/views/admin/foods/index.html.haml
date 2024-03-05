@@ -1,0 +1,14 @@
+.container
+  .row
+    - @foods.each do |food|
+      .col-sm-4.mb-3.mb-sm-0
+        .card.mb-4
+          = link_to admin_food_path(food), class: 'text-decoration-none', 'data-test-id': dom_id(food, :admin) do
+            .card-body.ms-2
+              .mx-3.mb-2= displayable_book_status_badge(food)
+              .fs-6.card-text.mx-3.fw-semibold= food.name
+              .fs-6.card-text.mx-3.fw-semibold= price_including_tax_text(food)
+              .d-flex.justify-content-around
+                = button_to "←", move_higher_admin_food_path(food), method: :patch, class: "btn btn-outline-danger"
+                = button_to "→", move_lower_admin_food_path(food), method: :patch, class: "btn btn-outline-danger"
+  = paginate @foods, theme: 'twitter-bootstrap-4'
