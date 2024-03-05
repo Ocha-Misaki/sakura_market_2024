@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  root 'application#index'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    confirmations: 'users/confirmations',
+  }
+
   devise_for :admin, controllers: {
     sessions: 'admin/sessions',
   }
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener'
 
   namespace :admin do
     root 'foods#index'
