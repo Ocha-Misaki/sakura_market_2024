@@ -1,5 +1,6 @@
 %nav.navbar.navbar-expand-lg.navbar-light.border-bottom.mb-4.justify-content-md-between
   .container
+    = link_to 'sakura_market 管理画面', admin_root_path, id: "logo"
     %ul.nav.nav-pills
       - if admin_signed_in?
         %li.nav-item
