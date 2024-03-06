@@ -1,0 +1,12 @@
+.container
+  .row.g-0.ms-3.mt-4.mb-5
+    .col-md-6
+      = render 'shared/image', food: @food, type: :display, size: "400x200"
+    .col-md-6
+      .fs-3.my-3
+        = @food.name
+      .fs-5.mb-4
+        = price_including_tax_text(@food)
+    .row.mt-4.mb-4
+      .fs-5.fw-bolder 概要
+      .fs-6.lh-lg= @food.description
