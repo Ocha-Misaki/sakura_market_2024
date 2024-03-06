@@ -21,5 +21,6 @@ Rails.application.routes.draw do
         patch :move_lower
       end
     end
+    resources :users, only: %i[index show edit update destroy]
   end
 end
