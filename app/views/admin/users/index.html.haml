@@ -1,0 +1,15 @@
+.container
+  .fs-2.page-title ユーザー一覧
+  %table.table.table-striped.table-hover.text-center.w-90{'data-test-id': "user-table"}
+    %thead
+      %tr
+        %th{scope:"col"}ID
+        %th{scope:"col"}メールアドレス
+        %th
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.id
+          %td= user.email
+          %td= link_to '詳細', admin_user_path(user), class: "link-primary text-decoration-none"
+  = paginate @users, theme: 'twitter-bootstrap-4'

@@ -6,6 +6,8 @@
         %li.nav-item
           = link_to "商品新規作成", new_admin_food_path, class: "nav-link link-success"
         %li.nav-item
+          = link_to "ユーザー一覧", admin_users_path, class: "nav-link link-success"
+        %li.nav-item
           = button_to '管理者ログアウト', destroy_admin_session_path, method: :delete, class: "nav-link link-danger"
       - else
         %li.nav-item
