@@ -1,0 +1,6 @@
+.container
+  .fs-2.page-title ユーザー情報編集
+  = simple_form_for(@user, url: admin_user_path(@user), method: :patch) do |f|
+    = render 'admin/layouts/error', resource: @user
+    = f.input :email
+    = f.button :submit, class: "btn btn-outline-danger"
