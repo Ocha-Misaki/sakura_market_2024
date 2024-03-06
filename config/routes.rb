@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'application#index'
+  root 'foods#index'
+  resources :foods, only: %i[index show]
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
