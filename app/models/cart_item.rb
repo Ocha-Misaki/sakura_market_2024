@@ -1,7 +1,7 @@
 class CartItem < ApplicationRecord
   belongs_to :cart
   belongs_to :food
-  validates :quantity, presence: true
+  validates :quantity, presence: true, numericality: { only_integer: true }
   scope :adding_order, -> { order(:food_id) }
 
   def price_including_tax
