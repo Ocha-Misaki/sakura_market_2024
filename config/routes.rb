@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resource :cart, only: %i[show] do
     resources :cart_items, only: %i[create edit update destroy], module: :cart
   end
+  resources :orders, only: %i[new create show]
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
