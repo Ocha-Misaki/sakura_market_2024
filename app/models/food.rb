@@ -6,6 +6,7 @@ class Food < ApplicationRecord
     attachable.variant :display, resize_to_limit: [300, 300]
     attachable.variant :thumbnail, resize_to_limit: [200, 200]
   end
+  has_many :cart_items, dependent: :destroy
   scope :custom_order, -> { order(:position) }
   scope :displayable, -> { where(displayable: true) }
   acts_as_list

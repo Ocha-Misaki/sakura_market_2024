@@ -4,6 +4,8 @@
     %ul.nav.nav-pills
       - if user_signed_in?
         %li.nav-item
+          = link_to "カート", cart_path, class: "nav-link link-danger"
+        %li.nav-item
           = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link link-danger"
       - else
         %li.nav-item

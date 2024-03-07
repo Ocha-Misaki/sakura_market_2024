@@ -1,0 +1,36 @@
+.container
+  .fs-2.page-title カート内商品
+  %table.table.table-sm.w-75.mx-5.table-background{'data-test-id': dom_id(current_cart)}
+    %thead
+      %tr
+        %th
+        %th
+        %th
+        %th
+        %th
+        %th
+        %th
+        %th
+    - current_cart.cart_items.adding_order.each do |item|
+      %tbody
+        %tr
+          %th.align-middle.text-center{scope:"row"}= item.food.id
+          %td.text-end
+            = render 'shared/image', food: item.food, size: "100x60"
+          %td.align-middle.text-center.fs-5= item.food.name
+          %td.align-middle.text-end= number_to_currency(item.price_including_tax)
+          %td.align-middle.text-end
+            = render "cart_items/edit_cart_form", cart_item: item
+          %td.align-middle.text-end
+            = button_to "削除する", cart_cart_item_path(item), method: :delete, class: "btn btn-danger btn-sm", data: { turbo_method: "delete", turbo_confirm: "削除してよろしいですか？" }
+          - unless item.orderable?
+            %td.align-middle.text-danger.fw-bold= "注文不可の商品です"
+    %tfoot
+      %tr
+        %th.align-middle.text-end{colspan:5} 合計点数
+        %th.align-middle.text-start= total_cart_items_quantity_text
+      %tr
+        %th.align-middle.text-end{colspan:5} 商品合計（税込み）
+        %th.align-middle.text-start= total_price_including_tax_text
+  .container.w-50
+    .d-flex.justify-content-end.my-5= purchase_button

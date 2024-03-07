@@ -7,6 +7,8 @@
         = @food.name
       .fs-5.mb-4
         = price_including_tax_text(@food)
+      .mb-3
+        = render "cart_items/add_cart_form", food: @food
     .row.mt-4.mb-4
       .fs-5.fw-bolder 概要
       .fs-6.lh-lg= @food.description
