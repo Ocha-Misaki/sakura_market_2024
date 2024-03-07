@@ -4,5 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_one :cart, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_many :order_items, through: :orders
+  has_many :foods, through: :order_items
   scope :default_order, -> { order(id: :asc) }
 end
