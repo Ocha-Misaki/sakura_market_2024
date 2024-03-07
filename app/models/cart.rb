@@ -29,8 +29,7 @@ class Cart < ApplicationRecord
   end
 
   def shipping_fee
-    num_of_item = total_cart_items_quantity / 5
-    additional_fee = (num_of_item - 1) * 600
+    additional_fee = (total_cart_items_quantity / 5) * 600
     600 + additional_fee
   end
 
