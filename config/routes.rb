@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   root 'foods#index'
   resources :foods, only: %i[index show]
   resource :cart, only: %i[show] do
-    resources :cart_items, only: %i[create edit update destroy], module: :cart
+    resources :cart_items, only: %i[create edit update], module: :cart
   end
-  resources :orders, only: %i[new create show]
+  resources :orders, only: %i[index new create show]
+
+  resources :users do
+    resource :address, only: %i[new create show edit update destroy], module: :users
+  end
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
