@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'foods#index'
   resources :foods, only: %i[index show]
   resource :cart, only: %i[show] do
-    resources :cart_items, only: %i[create edit update], module: :cart
+    resources :cart_items, only: %i[create edit update destroy], module: :cart
   end
   resources :orders, only: %i[index new create show]
 
