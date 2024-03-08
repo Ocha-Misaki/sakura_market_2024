@@ -1,4 +1,4 @@
-class Users::AddressesController < Users::ApplicationController
+class AddressesController < Users::ApplicationController
   before_action :set_address, only: %i[show edit update]
 
   def new
@@ -8,7 +8,7 @@ class Users::AddressesController < Users::ApplicationController
   def create
     @address = current_user.build_address(address_params)
     if @address.save!
-      redirect_to user_address_path, notice: '新規追加しました'
+      redirect_to address_path, notice: '新規追加しました'
     else
       render :new, status: :unprocessable_entity
     end
@@ -20,7 +20,7 @@ class Users::AddressesController < Users::ApplicationController
 
   def update
     if @address.update(address_params)
-      redirect_to user_address_path(@address), notice: '変更しました'
+      redirect_to address_path, notice: '変更しました'
     else
       render :edit, status: :unprocessable_entity
     end
