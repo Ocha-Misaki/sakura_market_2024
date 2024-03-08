@@ -1,0 +1,12 @@
+.container
+  .fs-3 レジ
+  .row
+    .col-sm-9.mb-3.mb-sm-0
+      = render "delivery_datetime_form", order: @order, address: current_user.address
+    .col-md-3
+      .card
+        .card-body
+          .card-text= "配送料: #{shipping_fee_text}"
+          .card-text= "代引き手数料: #{cash_on_delivery_fee_text}"
+          .card-text= "合計点数: #{total_cart_items_quantity_text}"
+          .card-text= "合計: #{total_price_including_tax_text}"
