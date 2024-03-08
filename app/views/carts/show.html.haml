@@ -9,8 +9,6 @@
         %th
         %th
         %th
-        %th
-        %th
     - current_cart.cart_items.adding_order.each do |item|
       %tbody
         %tr
@@ -27,7 +25,7 @@
             %td.align-middle.text-danger.fw-bold= "注文不可の商品です"
     %tfoot
       %tr
-        %th.align-middle.text-end{colspan:7} 合計点数
+        %th.align-middle.text-end{colspan:5} 合計点数
         %th.align-middle.text-center= total_cart_items_quantity_text
       - if current_cart.orderable?
         %tr
