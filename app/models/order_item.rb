@@ -4,4 +4,8 @@ class OrderItem < ApplicationRecord
   validates :food_name, presence: true
   validates :food_price, presence: true
   validates :food_quantity, presence: true
+
+  def subtotal
+    food_quantity * food_price
+  end
 end
