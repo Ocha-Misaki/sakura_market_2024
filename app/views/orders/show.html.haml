@@ -1,0 +1,24 @@
+.container
+  .fs-2.page-title 注文詳細
+  .card.mb-3
+    .card-body
+      .list-group.list-group-flush
+        %li.list-group-item
+          .card-title 注文日時
+          .card-text= l @order.created_at
+        %li.list-group-item
+          .card-title 配送日時
+          .card-text= delivery_at_text(@order)
+        %li.list-group-item
+          .card-title 宛名
+          .card-text= @order.order_name
+        %li.list-group-item
+          .card-title 宛先住所
+          .card-text= @order.order_address
+        %li.list-group-item
+          .card-title 注文点数
+          .card-text= order_item_quantity_text(@order)
+        %li.list-group-item
+          .card-title 注文金額（送料、代引き手数料込み）
+          .card-text= number_to_currency(@order.total_price_including_tax)
+        = render "food_detail", order: @order
