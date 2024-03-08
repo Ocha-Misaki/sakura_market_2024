@@ -7,7 +7,7 @@ module CartsHelper
     number_to_currency(current_cart.total_price_including_tax).to_s
   end
 
-  def purchase_button
+  def cashier_button
     if current_cart&.cart_items&.empty? || !current_cart&.orderable?
       button_tag 'レジに進む', class: 'btn btn-outline-danger disabled'
     else
