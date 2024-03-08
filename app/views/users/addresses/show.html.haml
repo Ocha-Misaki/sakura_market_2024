@@ -1,9 +1,0 @@
-.container
-  .fs-3 登録住所
-  - if @address.present?
-    .fs-5.my-2= @address.address_name
-    .fs-5.my-2= @address.address
-    = link_to "編集する", edit_user_address_path(current_user, @address)
-  - else
-    .my-3
-      = link_to "新規作成する", new_user_address_path(current_user)

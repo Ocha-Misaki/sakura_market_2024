@@ -4,7 +4,7 @@
     %ul.nav.nav-pills
       - if user_signed_in?
         %li.nav-item
-          = link_to "送付先住所", user_address_path(current_user), class: "nav-link link-danger"
+          = link_to "送付先住所", address_path, class: "nav-link link-danger"
         %li.nav-item
           = link_to "注文履歴", orders_path, class: "nav-link link-danger"
         %li.nav-item

@@ -1,4 +1,4 @@
-- url = address.new_record? ? user_address_path : user_address_path(address)
+- url = address.new_record? ? address_path : address_path
 - method = address.new_record? ? :post : :patch
 
 = simple_form_for(address, url: url, method: method) do |f|

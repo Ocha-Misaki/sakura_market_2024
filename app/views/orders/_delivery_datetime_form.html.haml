@@ -1,4 +1,5 @@
-= simple_form_for @order, url: orders_path, method: :post do |f|
+= simple_form_for(order, url: orders_path, method: :post) do |f|
+  = render 'layouts/error', resource: order
   .hstack.gap-4
     .vstack.gap-2
       = f.input :delivery_on, collection: @order.calculate_delivery_dates.map{|date| [date.to_s, date] },include_blank: false, prompt: '選択してください'
