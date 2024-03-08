@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @users = User.default_order.page(params[:page])
+    @users = User.preload(:address).default_order.page(params[:page])
   end
 
   def show; end
