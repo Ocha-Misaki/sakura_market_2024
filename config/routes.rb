@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   end
   resources :orders, only: %i[index new create show]
 
-  resources :users do
-    resource :address, only: %i[new create show edit update destroy], module: :users
-  end
+  resource :address, only: %i[new create show edit update destroy]
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
