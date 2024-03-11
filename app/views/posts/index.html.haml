@@ -9,7 +9,8 @@
               .card-text.mx-3= post.user.email
               .card-text= l post.created_at
             .fs-6.card-text.mx-3.my-3= post.text
-            = render "shared/image", resource: post, size: "200x120"
+            .mx-3
+              = render "shared/image", resource: post, size: "200x120"
             - if post.user == current_user
               .hstack.my-2
                 .fs-6.card-text.ms-3= link_to "編集", edit_post_path(post)
