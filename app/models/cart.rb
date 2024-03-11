@@ -4,11 +4,11 @@ class Cart < ApplicationRecord
   has_many :foods, through: :cart_items
 
   def subtotal
-    cart_items.sum(&:price_including_tax).floor + self.shipping_fee
+    cart_items.sum(&:price_including_tax).floor
   end
 
   def total_price_including_tax
-    self.subtotal + self.cash_on_delivery_fee
+    self.subtotal + self.cash_on_delivery_fee + self.shipping_fee
   end
 
   def cash_on_delivery_fee
