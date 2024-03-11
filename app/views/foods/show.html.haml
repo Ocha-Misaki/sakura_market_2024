@@ -1,7 +1,7 @@
 .container
   .row.g-0.ms-3.mt-4.mb-5
     .col-md-6.text-center
-      = render 'shared/image', food: @food, type: :display, size: "400x200"
+      = render 'shared/image', resource: @food, type: :display, size: "400x200"
     .col-md-6
       .fs-3.my-3
         = @food.name
