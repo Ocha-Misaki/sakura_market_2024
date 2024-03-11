@@ -1,5 +1,5 @@
 class PostsController < Users::ApplicationController
-  before_action :set_post, only: %i[edit update]
+  before_action :set_post, only: %i[edit update destroy]
 
   def index
     @posts = Post.default_order
@@ -28,6 +28,11 @@ class PostsController < Users::ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post.destroy!
+    redirect_to root_path, alert: '削除しました', status: :see_other
   end
 
   private
