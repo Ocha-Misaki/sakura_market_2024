@@ -1,4 +1,4 @@
 = form_with(url: cart_cart_items_path(params: { food_id: food.id }), method: :post) do |f|
-  .vstack.gap-3
+  .hstack.gap-3
     = f.number_field :quantity, class: "form-control", value: 1
-    = f.submit 'カートに入れる', class: 'btn btn-outline-danger'
+    = f.submit 'カートに入れる', class: 'btn btn-outline-success'

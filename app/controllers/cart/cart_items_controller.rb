@@ -2,18 +2,12 @@ class Cart::CartItemsController < Users::ApplicationController
   before_action :set_cart_item, only: %i[update destroy]
 
   def create
-    ## 後でリファクタする
-    @cart_item = current_cart.cart_items.find_by(food_id: params[:food_id])
-    if @cart_item
-      @cart_item.increment(:quantity, params[:quantity].to_i)
-      if @cart_item.save!
-        redirect_to cart_path, notice: 'カート情報を更新しました'
-      end
+    @cart_item = current_cart.cart_items.find_or_initialize_by(food_id: params[:food_id])
+    @cart_item.increment(:quantity, params[:quantity].to_i)
+    if @cart_item.save!
+      redirect_to cart_path, notice: 'カートに追加しました'
     else
-      @cart_item = current_cart.cart_items.build(food_id: params[:food_id], quantity: params[:quantity].to_i)
-      if @cart_item.save!
-        redirect_to cart_path, notice: 'カートに追加しました'
-      end
+      render 'foods/show', status: :unprocessable_entity
     end
   end
 

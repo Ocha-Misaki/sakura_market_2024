@@ -10,6 +10,6 @@
               .fs-6.card-text.mx-3.fw-semibold= food.name
               .fs-6.card-text.mx-3.fw-semibold= price_including_tax_text(food)
               .d-flex.justify-content-around.mt-3
-                = button_to "←", move_higher_admin_food_path(food), method: :patch, class: "btn btn-outline-danger"
-                = button_to "→", move_lower_admin_food_path(food), method: :patch, class: "btn btn-outline-danger"
+                = button_to "←", move_higher_admin_food_path(food), method: :patch, class: "btn btn-outline-success"
+                = button_to "→", move_lower_admin_food_path(food), method: :patch, class: "btn btn-outline-success"
   = paginate @foods, theme: 'twitter-bootstrap-4'

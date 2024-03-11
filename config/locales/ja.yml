@@ -8,6 +8,14 @@ ja:
         position: 表示順
         price: 価格
         description: 商品説明
+      address:
+        address_name: 宛名
+        address: 住所
+      order:
+        delivery_on: 配送日
+        delivery_time: 配送時間
+        order_name: 宛名
+        order_address: お届け住所
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

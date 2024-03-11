@@ -1,0 +1,9 @@
+.container
+  .fs-2.page-title 登録住所
+  - if @address.present?
+    .fs-5.my-2= @address.address_name
+    .fs-5.my-2= @address.address
+    = link_to "編集する", edit_address_path
+  - else
+    .my-3
+      = link_to "新規作成する", new_address_path

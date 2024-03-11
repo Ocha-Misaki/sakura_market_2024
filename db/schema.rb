@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_07_051024) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_08_021121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_051024) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "addresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "address_name", default: "", null: false
+    t.text "address", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -60,6 +69,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_051024) do
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
     t.index ["food_id"], name: "index_cart_items_on_food_id"
   end
 
@@ -96,11 +106,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_051024) do
     t.bigint "user_id", null: false
     t.string "order_name", default: "", null: false
     t.text "order_address", default: "", null: false
-    t.datetime "delivery_at", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "shipping_fee", null: false
     t.integer "cash_on_delivery_fee", null: false
+    t.string "delivery_time", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "delivery_on", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -122,6 +133,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_051024) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "addresses", "users"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "foods"
   add_foreign_key "carts", "users"

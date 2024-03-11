@@ -5,13 +5,15 @@ ruby '3.2.2'
 
 gem 'rails', '~> 7.1.3.2'
 
-gem "acts_as_list"
+gem 'acts_as_list'
 gem 'bootsnap', require: false
 gem 'bootstrap4-kaminari-views'
+gem 'business_time'
 gem 'cssbundling-rails'
+gem 'dartsass-rails'
 gem 'devise'
 gem 'haml-rails'
-gem "image_processing"
+gem 'image_processing'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'jsbundling-rails'
@@ -20,7 +22,6 @@ gem 'letter_opener_web'
 gem 'pg'
 gem 'puma'
 gem 'redis'
-gem "sassc-rails"
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
@@ -39,7 +40,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-screenshot'
   gem 'guard'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'

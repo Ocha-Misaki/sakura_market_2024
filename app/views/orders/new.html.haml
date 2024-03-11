@@ -1,0 +1,9 @@
+.container
+  .fs-2.page-title レジ
+  .row
+    .col-md-8.my-3
+      = render "cart_item_detail", cart: current_cart
+    .col-md-4
+      = render "total_cash_detail", cart: current_cart
+    .my-3
+      = render "delivery_detail_form", order: @order, address: current_user.address

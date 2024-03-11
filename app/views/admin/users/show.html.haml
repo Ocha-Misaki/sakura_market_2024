@@ -1,11 +1,15 @@
 .container
-  .fs-2.page-title.mb-5 ユーザー詳細
-  .row.g-0.ms-3.mt-4.mb-5
-    .col-md-8
-      .fs-5.mb-4
-        = @user.email
-      .fs-5.mb-4
-        = @user.password
+  .fs-2.page-title ユーザー詳細
+  .my-4
+    .fs-5 メールアドレス
+    = @user.email
+  - if !@user.address.nil?
+    .my-4
+      .fs-5 登録住所
+      = @user.address.address
+    .my-4
+      .fs-5 登録名
+      = @user.address.address_name
   .d-inline-flex.mx-2.gap-2
     = link_to '編集', edit_admin_user_path(@user), class: "link-primary link-offset-1"
     = button_to '削除', admin_user_path(@user), method: :delete, data: { turbo_method: "delete", turbo_confirm: "削除してよろしいですか？" }, class: "btn btn-danger"

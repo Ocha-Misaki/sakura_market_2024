@@ -1,0 +1,14 @@
+%table.table.text-center{'data-test-id': dom_id(cart, :cart_item_detail)}
+  %thead
+    %tr
+      %th
+      %th{scope:"col"}商品名
+      %th{scope:"col"}価格
+      %th{scope:"col"}個数
+  %tbody
+    - cart.cart_items.each do |item|
+      %tr
+        %td= render 'shared/image', food: item.food, size: "100x60"
+        %td.align-middle= item.food.name
+        %td.align-middle= number_to_currency(item.food.price_including_tax)
+        %td.align-middle= item.quantity
