@@ -4,7 +4,7 @@
       .col-sm-4.mb-3.mb-sm-0
         .card.mb-4
           = link_to food_path(food), class: 'text-decoration-none', 'data-test-id': dom_id(food) do
-            = render "shared/image", food: food, class_name: "card-img-top"
+            = render "shared/image", resource: food, class_name: "card-img-top"
             .card-body.ms-2
               .fs-6.card-text.mx-3.fw-semibold= food.name
               .fs-6.card-text.mx-3.fw-semibold= price_including_tax_text(food)

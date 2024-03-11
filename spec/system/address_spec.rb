@@ -21,7 +21,7 @@ RSpec.describe 'アドレス作成機能', type: :system do
         visit address_path
         expect(page).to have_content 'テスト太郎'
         expect(page).to have_content '東京都大田区田園調布'
-        expect(page).not_to have_link '新規作成'
+        expect(page).not_to have_link '新規作成', href: new_address_path
         expect(page).to have_link '編集する'
       end
     end

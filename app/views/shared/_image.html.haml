@@ -2,5 +2,5 @@
 - type ||= :thumbnail
 - class_name ||= ""
 .book-img
-  - image = food.image.attached? ? food.image.variant(type) : "no-img.jpg"
+  - image = resource.image.attached? ? resource.image.variant(type) : "no-img.jpg"
   = image_tag(image, class: "object-fit-cover #{class_name}", size: size)
