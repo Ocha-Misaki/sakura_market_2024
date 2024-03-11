@@ -31,7 +31,6 @@ class Cart < ApplicationRecord
   def shipping_fee
     num_of_item = (self.total_cart_items_quantity / 5).ceil
     additional_fee = num_of_item * 600
-
     600 + additional_fee
   end
 
