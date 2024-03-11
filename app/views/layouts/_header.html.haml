@@ -4,11 +4,15 @@
     %ul.nav.nav-pills
       - if user_signed_in?
         %li.nav-item
+          = link_to "買い物", foods_path, class: "nav-link"
+        %li.nav-item
+          = link_to "カート", cart_path, class: "nav-link"
+        %li.nav-item
           = link_to "送付先住所", address_path, class: "nav-link"
         %li.nav-item
           = link_to "注文履歴", orders_path, class: "nav-link"
         %li.nav-item
-          = link_to "カート", cart_path, class: "nav-link"
+          = link_to "日記新規作成", new_post_path, class: "nav-link"
         %li.nav-item
           = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
       - else

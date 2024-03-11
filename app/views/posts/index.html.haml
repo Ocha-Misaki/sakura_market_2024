@@ -1,0 +1,17 @@
+.container
+  .row
+    - @posts.each do |post|
+      .col-sm-8.mb-3.mb-sm-0
+        .card.mb-4
+          .card-body.ms-2
+            .fs-5.card-title.mx-3.fw-semibold= post.title
+            .hstack
+              .card-text.mx-3= post.user.email
+              .card-text= l post.created_at
+            .fs-6.card-text.mx-3.my-3= post.text
+            = render "shared/image", resource: post, size: "200x120"
+            - if post.user == current_user
+              .hstack.my-2
+                .fs-6.card-text.ms-3= link_to "編集", edit_post_path(post)
+                .fs-6.card-text.ms-3= button_to "削除", post_path(post), method: :delete, data: { turbo_confirm: "本当に削除しますか？" } , class: "nav-link link-danger"
+  = paginate @posts, theme: 'twitter-bootstrap-4'

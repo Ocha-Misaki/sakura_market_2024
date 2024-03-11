@@ -16,6 +16,9 @@ ja:
         delivery_time: 配送時間
         order_name: 宛名
         order_address: お届け住所
+      post:
+        title: タイトル
+        text: 本文
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

@@ -1,0 +1,9 @@
+- url = post.new_record? ? posts_path : post_path(post)
+- method = post.new_record? ? :post : :patch
+
+= simple_form_for(post, url: url, method: method) do |f|
+  = render 'admin/layouts/error', resource: post
+  = f.input :title
+  = f.input :text, input_html: {rows: 10}
+  = f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: 'form-control', direct_upload: true
+  = f.button :submit, class: "btn btn-outline-success my-4"
