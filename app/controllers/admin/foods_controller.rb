@@ -3,6 +3,7 @@ class Admin::FoodsController < Admin::ApplicationController
 
   def index
     @foods = Food.custom_order
+                 .with_attached_image
                  .page(params[:page])
   end
 
