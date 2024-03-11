@@ -19,8 +19,8 @@
           %td.align-middle.text-end= number_to_currency(item.price_including_tax)
           %td.align-middle.text-end
             = render "cart_items/edit_cart_form", cart_item: item
-          %td.align-middle.text-end
-            = button_to "削除する", cart_cart_item_path(item), method: :delete, class: "btn btn-danger btn-sm", data: { turbo_method: "delete", turbo_confirm: "削除してよろしいですか？" }
+          %td.align-middle
+            = button_to "削除する", cart_cart_item_path(item), method: :delete, class: "btn btn-success btn-sm", data: { turbo_method: "delete", turbo_confirm: "削除してよろしいですか？" }
           - unless item.orderable?
             %td.align-middle.text-danger.fw-bold= "注文不可の商品です"
     %tfoot
@@ -40,5 +40,4 @@
         %tr
           %th.align-middle.text-end{colspan:5} 合計（税込）
           %th.align-middle.text-center= total_price_including_tax_text
-  .container.w-50
-    .d-flex.justify-content-end.my-5= cashier_button
+  .d-flex.justify-content-end.my-5= cashier_button
