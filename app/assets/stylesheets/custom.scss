@@ -1,11 +1,43 @@
 @import 'bootstrap/scss/bootstrap';
 
+body {
+  font-family: 'Avenir';
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: $teal-600;
+}
+
+a {
+  color: $teal-600;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.nav-link {
+  color: $teal-600;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: $teal-600;
+  appearance: none;
+}
+
 /* ヘッダー */
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.6em;
-  color: #CF000E;
+  color: $teal-600;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: -1px;
