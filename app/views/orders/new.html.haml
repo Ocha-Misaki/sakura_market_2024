@@ -1,12 +1,9 @@
 .container
-  .fs-3 レジ
+  .fs-2.page-title レジ
   .row
-    .col-sm-9.mb-3.mb-sm-0
-      = render "delivery_datetime_form", order: @order, address: current_user.address
-    .col-md-3
-      .card
-        .card-body
-          .card-text= "配送料: #{shipping_fee_text}"
-          .card-text= "代引き手数料: #{cash_on_delivery_fee_text}"
-          .card-text= "合計点数: #{total_cart_items_quantity_text}"
-          .card-text= "合計: #{total_price_including_tax_text}"
+    .col-md-8.my-3
+      = render "cart_item_detail", cart: current_cart
+    .col-md-4
+      = render "total_cash_detail", cart: current_cart
+    .my-3
+      = render "delivery_detail_form", order: @order, address: current_user.address

@@ -1,0 +1,6 @@
+.card{'data-test-id': dom_id(cart, :total_cash_detail)}
+  .card-body
+    .card-text= "配送料: #{shipping_fee_text}"
+    .card-text= "代引き手数料: #{cash_on_delivery_fee_text}"
+    .card-text= "合計点数: #{total_cart_items_quantity_text}"
+    .card-text.fw-bold= "合計: #{total_price_including_tax_text}"
