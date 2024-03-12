@@ -63,5 +63,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include ActionView::RecordIdentifier, type: :system
+  config.include ActionMailer::TestHelper
   config.include ActiveSupport::Testing::TimeHelpers
 end

@@ -4,6 +4,7 @@ class PostsController < Users::ApplicationController
   def index
     @posts = Post.default_order
                  .with_attached_image
+                 .preload(:likes, :user)
                  .page(params[:page])
   end
 

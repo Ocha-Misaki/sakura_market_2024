@@ -9,5 +9,6 @@ class User < ApplicationRecord
   has_many :order_items, through: :orders
   has_many :foods, through: :order_items
   has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
   scope :default_order, -> { order(id: :asc) }
 end

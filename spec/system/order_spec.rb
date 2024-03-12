@@ -32,16 +32,17 @@ RSpec.describe '注文機能', type: :system do
             expect(page).to have_content '合計: 1,010円'
           end
 
-          travel_to Date.new(2024, 3, 10) do
+          # #テスト落ちる
+          travel_to Time.zone.local(2024, 3, 20) do
             today = Date.current
-            first_business_days = (today + 4.days).to_date
-            select "#{first_business_days}", from: '配送日'
+            select "#{today}", from: '配送日'
             select '8:00-12:00', from: '配送時間'
             fill_in '宛名', with: '田中太郎'
             fill_in 'お届け住所', with: '神奈川県鎌倉市'
             expect do
               click_button '注文する'
-            end.to change(Order, :count).by(1)
+            end.to change(Order, :count).by(1).and change(cart.cart_items, :count).from(1).to(0).and change(OrderItem, :count).by(1)
+            expect(OrderItem.last).to have_attributes(food_name: 'にんじん', food_price: 110, food_quantity: 1)
           end
         end
       end

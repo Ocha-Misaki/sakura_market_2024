@@ -1,0 +1,10 @@
+<%= @post.user.email %> さま
+
+あなたの投稿がGoodされました!
+いつも当サイトをご利用いただき、ありがとうございます。
+──────────────
+■詳細■
+〔日記タイトル〕 <%= "#{@post.title}" %>
+〔Goodされた日時〕 <%= "#{l @post.likes.last.created_at}" %>
+〔Goodしたユーザー〕 <%= "#{@post.likes.last.user.email}" %>
+──────────────
