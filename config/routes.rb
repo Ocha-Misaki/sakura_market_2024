@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :orders, only: %i[index new create show]
   resources :posts, only: %i[index new create edit update destroy] do
     resource :like, only: %i[create destroy], module: :posts
+    resources :comments, only: %i[index new create edit update destroy], module: :posts
   end
 
   devise_for :users, controllers: {
