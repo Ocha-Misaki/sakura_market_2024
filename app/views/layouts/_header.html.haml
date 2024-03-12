@@ -16,7 +16,7 @@
               %span.position-absolute.top-40.start-150.translate-middle.badge.rounded-pill.bg-danger{'data-test-id': dom_id(current_cart, :cart_items_count)}
                 = current_cart.total_cart_items_quantity
         %li.nav-item
-          = link_to "注文履歴", orders_path, class: "nav-link"
+          = link_to "注文履歴", orders_path, class: "nav-link ms-3"
         %li.nav-item
           = link_to "日記作成", new_post_path, class: "nav-link"
         %li.nav-item

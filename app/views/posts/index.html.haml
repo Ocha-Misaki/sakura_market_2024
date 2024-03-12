@@ -15,6 +15,6 @@
               .hstack.my-2
                 .fs-6.card-text.ms-3= link_to "編集", edit_post_path(post)
                 .fs-6.card-text.ms-3= button_to "削除", post_path(post), method: :delete, data: { turbo_confirm: "本当に削除しますか？" } , class: "nav-link link-danger"
-            .mx-3
+            .mx-3.my-2
               = render "likes/like", post: post, like: current_user.likes.find_by(post_id: post.id)
   = paginate @posts, theme: 'twitter-bootstrap-4'
