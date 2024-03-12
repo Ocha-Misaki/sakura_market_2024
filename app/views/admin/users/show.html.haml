@@ -12,4 +12,4 @@
       = @user.address.address_name
   .d-inline-flex.mx-2.gap-2
     = link_to '編集', edit_admin_user_path(@user), class: "link-primary link-offset-1"
-    = button_to '削除', admin_user_path(@user), method: :delete, data: { turbo_method: "delete", turbo_confirm: "削除してよろしいですか？" }, class: "btn btn-danger"
+    = button_to '削除', admin_user_path(@user), method: :delete, data: { turbo_confirm: "削除してよろしいですか？" }, class: "btn btn-danger"
