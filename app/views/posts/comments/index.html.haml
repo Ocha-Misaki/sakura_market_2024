@@ -12,4 +12,7 @@
                 .card-text
                   = button_to post_comment_path(@post, comment), method: :delete, data: { turbo_confirm: "削除してよろしいですか？" } do
                     %i.fa-solid.fa-x
+                .card-text
+                  = link_to edit_post_comment_path(@post, comment) do
+                    %i.fa-solid.fa-comment{'data-test-id': dom_id(@post, :comment)}
   = paginate @comments, theme: 'twitter-bootstrap-4'
