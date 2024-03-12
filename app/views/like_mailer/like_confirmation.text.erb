@@ -6,5 +6,5 @@
 ■詳細■
 〔日記タイトル〕 <%= "#{@post.title}" %>
 〔Goodされた日時〕 <%= "#{l @post.likes.last.created_at}" %>
-〔Goodしたユーザー〕 <%= "#{l @post.likes.last.user.email}" %>
+〔Goodしたユーザー〕 <%= "#{@post.likes.last.user.email}" %>
 ──────────────
