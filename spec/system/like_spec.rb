@@ -45,7 +45,7 @@ RSpec.describe 'いいね機能', type: :system do
               button.click
             end
           end.to change(Like, :count).by(1)
-        endw
+        end
       end
     end
 
