@@ -1,0 +1,12 @@
+- if not post.user == current_user
+  - if like
+    = button_to post_like_path(post), method: :delete do
+      %i.fa-solid.fa-thumbs-up
+      = post.likes.count
+  - else
+    = button_to post_like_path(post), method: :post do
+      %i.fa-regular.fa-thumbs-up
+      = post.likes.count
+- else
+  %i.fa-regular.fa-thumbs-up
+  = post.likes.count
