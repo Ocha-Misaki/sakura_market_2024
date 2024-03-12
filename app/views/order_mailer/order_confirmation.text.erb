@@ -1,0 +1,21 @@
+<%= @order.user.email %> さま
+
+この度は、数あるネットショップの中から当店を選んでいただきありがとうございます。
+お客様のご注文を以下の内容で承りました。
+ご確認いただき、内容に誤りなどございましたらお知らせください。
+
+──────────────
+■ご注文内容■
+〔ご注文番号〕 <%= "#{@order.id}" %>
+〔ご注文日時〕 <%= "#{l @order.created_at}" %>
+
+<% @order.order_items.each do |order_item| %>
+〔商品名〕 <%=  "#{order_item.food_name}" %> x <%=  "#{order_item.food_quantity}個" %>
+<% end %>
+〔送料〕<%=  "#{@order.shipping_fee}" %>
+〔代引き手数料〕<%=  "#{@order.cash_on_delivery_fee}" %>
+〔合計金額〕<%= "#{number_to_currency(@order.total_price_including_tax)}" %>（税込）
+──────────────
+
+〔配送予定日〕<%= @order.delivery_on %> <%= @order.delivery_time %>
+商品がお手元に届くまで、今しばらくお待ちください
