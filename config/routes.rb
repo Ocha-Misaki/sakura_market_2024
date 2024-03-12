@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   end
   resources :foods, only: %i[index show]
   resources :orders, only: %i[index new create show]
-  resources :posts, only: %i[index new create edit update destroy]
+  resources :posts, only: %i[index new create edit update destroy] do
+    resource :like, only: %i[create destroy], module: :posts
+  end
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
