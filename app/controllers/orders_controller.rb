@@ -13,6 +13,7 @@ class OrdersController < Users::ApplicationController
     @order.cash_on_delivery_fee = current_cart.cash_on_delivery_fee
     @order.create_order_from_cart(current_cart)
     if @order.save!
+      OrderMailer.order_confirmation(@order).deliver_later
       redirect_to root_path, notice: 'ご注文完了しました。メールをご確認ください。'
     else
       redirect_to cart_path, alert: '注文不可の商品がカートに入っていたため、注文完了できませんでした。'
