@@ -10,5 +10,6 @@ class User < ApplicationRecord
   has_many :foods, through: :order_items
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   scope :default_order, -> { order(id: :asc) }
 end

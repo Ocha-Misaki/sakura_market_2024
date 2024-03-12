@@ -1,0 +1,11 @@
+- if not post.user == current_user
+  = link_to post_comments_path(post) do
+    %i.fa-solid.fa-comment{'data-test-id': dom_id(post, :comment)}
+    = "コメントを見る"
+  = link_to new_post_comment_path(post) do
+    %i.fa-regular.fa-comment{'data-test-id': dom_id(post, :comment)}
+    = "コメントを書く"
+- else
+  = link_to post_comments_path(post) do
+    %i.fa-solid.fa-comment
+    = "コメントを見る"

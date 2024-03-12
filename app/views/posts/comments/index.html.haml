@@ -1,0 +1,18 @@
+.container
+  .fs-3.my-3 コメント一覧
+  .row
+    - @comments.each do |comment|
+      .col-sm-4.mb-3.mb-sm-0
+        .card.mb-4
+          .card-body.ms-2
+            .card-text.mx-3= comment.user.email
+            .hstack.gap-3
+              .card-text.mx-3= comment.text
+              - if comment.user == current_user
+                .card-text
+                  = button_to post_comment_path(@post, comment), method: :delete, data: { turbo_confirm: "削除してよろしいですか？" } do
+                    %i.fa-solid.fa-x
+                .card-text
+                  = link_to edit_post_comment_path(@post, comment) do
+                    %i.fa-solid.fa-comment{'data-test-id': dom_id(@post, :comment)}
+  = paginate @comments, theme: 'twitter-bootstrap-4'
