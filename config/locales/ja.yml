@@ -19,6 +19,8 @@ ja:
       post:
         title: タイトル
         text: 本文
+      comment:
+        text: コメント
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
