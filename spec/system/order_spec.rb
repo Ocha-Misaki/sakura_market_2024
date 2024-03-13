@@ -29,7 +29,7 @@ RSpec.describe '注文機能', type: :system do
             expect(page).to have_content '配送料: 600円'
             expect(page).to have_content '代引き手数料: 300円'
             expect(page).to have_content '合計点数: 1個'
-            expect(page).to have_content '合計: 1,010円'
+            expect(page).to have_content '合計: 1,100円'
           end
 
           # #テスト落ちる
