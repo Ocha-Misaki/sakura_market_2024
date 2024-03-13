@@ -8,7 +8,7 @@ class OrdersController < Users::ApplicationController
   end
 
   def create
-    @order = current_user.orders.new(order_params)
+    @order = current_user.orders.build(order_params)
     @order.shipping_fee = current_cart.shipping_fee
     @order.cash_on_delivery_fee = current_cart.cash_on_delivery_fee
     @order.create_order_from_cart(current_cart)
@@ -27,6 +27,6 @@ class OrdersController < Users::ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:delivery_time, :delivery_on, :order_name, :order_address)
+    params.require(:order).permit(:order_name, :order_address, :delivery_time, :delivery_on)
   end
 end
