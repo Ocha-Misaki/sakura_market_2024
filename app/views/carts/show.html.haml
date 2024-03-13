@@ -29,15 +29,15 @@
         %th.align-middle.text-center= total_cart_items_quantity_text
       - if current_cart.orderable?
         %tr
-          %th.align-middle.text-end{colspan:5} 送料
-          %th.align-middle.text-center= shipping_fee_text
-        %tr
           %th.align-middle.text-end{colspan:5} 小計（税込）
           %th.align-middle.text-center= subtotal_text
+        %tr
+          %th.align-middle.text-end{colspan:5} 送料
+          %th.align-middle.text-center= shipping_fee_text
         %tr
           %th.align-middle.text-end{colspan:5} 代引き手数料
           %th.align-middle.text-center= cash_on_delivery_fee_text
         %tr
           %th.align-middle.text-end{colspan:5} 合計（税込）
-          %th.align-middle.text-center= total_price_including_tax_text
+          %th.align-middle.text-center= total_cart_price_including_tax_text
   .d-flex.justify-content-end.my-5= cashier_button
