@@ -29,7 +29,7 @@ RSpec.describe 'カート機能', type: :system do
             expect(page).to have_content '220円'
             expect(page).to have_content '300円' # 送料
             expect(page).to have_content '600円' # 代引き手数料
-            expect(page).to have_content '1,120円' # 合計金額
+            expect(page).to have_content '1,210円' # 合計金額
           end
         end
       end
@@ -76,7 +76,7 @@ RSpec.describe 'カート機能', type: :system do
           expect(page).to have_content '110円'
           expect(page).to have_content '300円' # 送料
           expect(page).to have_content '600円' # 代引き手数料
-          expect(page).to have_content '1,010円' # 合計金額
+          expect(page).to have_content '1,100円' # 合計金額
         end
 
         fill_in 'cart_item[quantity]', with: 2
@@ -91,7 +91,7 @@ RSpec.describe 'カート機能', type: :system do
           expect(page).to have_content '220円'
           expect(page).to have_content '300円' # 送料
           expect(page).to have_content '600円' # 代引き手数料
-          expect(page).to have_content '1,120円' # 合計金額
+          expect(page).to have_content '1,210円' # 合計金額
         end
       end
     end

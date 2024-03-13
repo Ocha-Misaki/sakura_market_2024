@@ -6,8 +6,6 @@ class Cart::CartItemsController < Users::ApplicationController
     @cart_item.increment(:quantity, params[:quantity].to_i)
     if @cart_item.save!
       redirect_to cart_path, notice: 'カートに追加しました'
-    else
-      render 'foods/show', status: :unprocessable_entity
     end
   end
 

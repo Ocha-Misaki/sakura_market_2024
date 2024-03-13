@@ -6,6 +6,6 @@
       = f.input :delivery_time, as: :select, collection: [["8:00-12:00", "8:00-12:00"],["12:00-14:00", "12:00-14:00"],["14:00-16:00", "14:00-16:00"],["16:00-18:00", "16:00-18:00"],["18:00-20:00", "18:00-20:00"],["20:00-21:00", "20:00-21:00"]],
         include_blank: false, prompt: '選択してください'
     .vstack.gap-2
-      = f.input :order_name, input_html: {value: address.nil? ? "" : address.address_name }
-      = f.input :order_address, input_html: {rows: 5, value: address.nil?  ? "" : address.address}
+      = f.input :order_name, input_html: {value: address.present? ? address.address_name : ""  }
+      = f.input :order_address, input_html: {rows: 5, value: address.present?  ? address.location : ""  }
   = f.button :submit, value: '注文する', class: "btn btn-outline-success mb-3"

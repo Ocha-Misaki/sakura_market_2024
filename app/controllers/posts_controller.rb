@@ -3,8 +3,8 @@ class PostsController < Users::ApplicationController
 
   def index
     @posts = Post.default_order
+                 .preload(:likes, :comments)
                  .with_attached_image
-                 .preload(:likes, :user)
                  .page(params[:page])
   end
 
@@ -14,7 +14,7 @@ class PostsController < Users::ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save!
+    if @post.save
       redirect_to root_path, notice: '新規追加しました'
     else
       render :new, status: :unprocessable_entity

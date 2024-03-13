@@ -11,7 +11,7 @@ class Order < ApplicationRecord
   scope :default_order, -> { order(id: :desc) }
 
   def create_order_from_cart(cart)
-    return false unless cart.orderable?
+    return unless cart.orderable?
 
     transaction do
       cart.cart_items.each do |cart_item|
@@ -27,15 +27,15 @@ class Order < ApplicationRecord
   end
 
   def total_price_including_tax
-    ((foods.sum(&:price) * Food::TAX_RATE) + shipping_fee + cash_on_delivery_fee).floor
+    (foods.sum(&:price_including_tax) + shipping_fee + cash_on_delivery_fee).floor
   end
 
   def calculate_delivery_dates
     today = Date.current
-    three_business_days = 3.business_days.after(today)
+    first_business_days = 3.business_days.after(today)
     last_business_days = 14.business_days.after(today)
-    business_date_range = (three_business_days..last_business_days).to_a
-    (business_date_range.map { |business_day| business_day.to_date.workday? ? business_day : next }).compact # nilを除外した配列を返す
+    business_dates_range = (first_business_days..last_business_days).to_a
+    (business_dates_range.map { |business_day| business_day.to_date.workday? ? business_day : next }).compact # nilを除外した配列を返す
   end
 
   def order_item_quantity

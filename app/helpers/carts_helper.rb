@@ -3,7 +3,7 @@ module CartsHelper
     number_to_currency(current_cart.subtotal).to_s
   end
 
-  def total_price_including_tax_text
+  def total_cart_price_including_tax_text
     number_to_currency(current_cart.total_price_including_tax).to_s
   end
 

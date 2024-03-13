@@ -4,5 +4,5 @@
 = simple_form_for(address, url: url, method: method) do |f|
   = render 'admin/layouts/error', resource: address
   = f.input :address_name
-  = f.input :address,input_html: {rows: 5}
+  = f.input :location,input_html: {rows: 5}
   = f.button :submit, class: "btn btn-outline-success my-4"
