@@ -8,7 +8,7 @@ class Cart < ApplicationRecord
   end
 
   def total_price_including_tax
-    self.subtotal + self.cash_on_delivery_fee + self.shipping_fee
+    self.subtotal + ((self.cash_on_delivery_fee + self.shipping_fee) * Food::TAX_RATE)
   end
 
   def cash_on_delivery_fee
@@ -29,8 +29,8 @@ class Cart < ApplicationRecord
   end
 
   def shipping_fee
-    num_of_item = (self.total_cart_items_quantity / 5).ceil
-    additional_fee = num_of_item * 600
+    unit_of_item = (self.total_cart_items_quantity / 5).ceil
+    additional_fee = unit_of_item * 600
     600 + additional_fee
   end
 
