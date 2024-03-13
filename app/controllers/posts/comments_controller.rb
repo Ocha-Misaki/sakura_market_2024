@@ -14,7 +14,7 @@ class Posts::CommentsController < Users::ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    if @comment.save!
+    if @comment.save
       redirect_to root_path, notice: 'コメントしました'
     else
       render :new, status: :unprocessable_entity
@@ -32,8 +32,8 @@ class Posts::CommentsController < Users::ApplicationController
   end
 
   def destroy
-    @comment.destroy
-    redirect_to root_path, alert: 'コメントを削除しました'
+    @comment.destroy!
+    redirect_to root_path, alert: 'コメントを削除しました', status: :see_other
   end
 
   private
