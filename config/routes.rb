@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'posts#index'
-  resource :address, only: %i[new create show edit update destroy]
+  resource :address, only: %i[new create show edit update]
   resource :cart, only: %i[show] do
-    resources :cart_items, only: %i[create edit update destroy], module: :cart
+    resources :cart_items, only: %i[create update destroy], module: :cart
   end
   resources :foods, only: %i[index show]
   resources :orders, only: %i[index new create show]
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resource :like, only: %i[create destroy], module: :posts
     resources :comments, only: %i[index new create edit update destroy], module: :posts
   end
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -21,8 +23,6 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
     sessions: 'admin/sessions',
   }
-
-  mount LetterOpenerWeb::Engine, at: '/letter_opener'
 
   namespace :admin do
     root 'foods#index'
