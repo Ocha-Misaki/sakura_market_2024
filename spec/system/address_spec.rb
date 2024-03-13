@@ -13,7 +13,7 @@ RSpec.describe 'アドレス作成機能', type: :system do
         expect(page).to have_current_path new_address_path
 
         fill_in 'address_address_name', with: 'テスト太郎'
-        fill_in 'address_address', with: '東京都大田区田園調布'
+        fill_in 'address_location', with: '東京都大田区田園調布'
         expect do
           click_button '登録する'
         end.to change(Address, :count).by(1)
@@ -34,7 +34,7 @@ RSpec.describe 'アドレス作成機能', type: :system do
         expect(page).to have_current_path edit_address_path
 
         fill_in 'address_address_name', with: 'テスト次郎'
-        fill_in 'address_address', with: '東京都大田区'
+        fill_in 'address_location', with: '東京都大田区'
         expect do
           click_button '更新する'
         end.not_to change(Address, :count)

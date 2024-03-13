@@ -10,7 +10,7 @@ ja:
         description: 商品説明
       address:
         address_name: 宛名
-        address: 住所
+        location: 住所
       order:
         delivery_on: 配送日
         delivery_time: 配送時間
