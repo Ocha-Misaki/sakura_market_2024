@@ -14,6 +14,8 @@ class Order < ApplicationRecord
     return unless cart.orderable?
 
     transaction do
+      self.shipping_fee = cart.shipping_fee
+      self.cash_on_delivery_fee = cart.cash_on_delivery_fee
       cart.cart_items.each do |cart_item|
         order_items.build(
           food: cart_item.food,
@@ -22,6 +24,7 @@ class Order < ApplicationRecord
           food_quantity: cart_item.quantity
         )
       end
+      save!
       cart.cart_items.destroy_all
     end
   end

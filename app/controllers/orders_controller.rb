@@ -9,10 +9,7 @@ class OrdersController < Users::ApplicationController
 
   def create
     @order = current_user.orders.build(order_params)
-    @order.shipping_fee = current_cart.shipping_fee
-    @order.cash_on_delivery_fee = current_cart.cash_on_delivery_fee
-    @order.create_order_from_cart(current_cart)
-    if @order.save!
+    if @order.create_order_from_cart(current_cart)
       OrderMailer.order_confirmation(@order).deliver_later
       redirect_to root_path, notice: 'ご注文完了しました。メールをご確認ください。'
     else

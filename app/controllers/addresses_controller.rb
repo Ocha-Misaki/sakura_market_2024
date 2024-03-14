@@ -7,7 +7,7 @@ class AddressesController < Users::ApplicationController
 
   def create
     @address = current_user.build_address(address_params)
-    if @address.save!
+    if @address.save
       redirect_to address_path, notice: '新規追加しました'
     else
       render :new, status: :unprocessable_entity
