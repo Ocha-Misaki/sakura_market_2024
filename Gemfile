@@ -9,16 +9,13 @@ gem 'acts_as_list'
 gem 'bootsnap', require: false
 gem 'bootstrap4-kaminari-views'
 gem 'business_time'
-gem 'cssbundling-rails'
 gem 'dartsass-rails'
 gem 'devise'
 gem 'haml-rails'
 gem 'image_processing'
 gem 'importmap-rails'
 gem 'jbuilder'
-gem 'jsbundling-rails'
 gem 'kaminari'
-gem 'letter_opener_web'
 gem 'pg'
 gem 'puma'
 gem 'redis'
@@ -30,6 +27,7 @@ gem 'turbo-rails'
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails'
+  gem 'letter_opener_web'
   gem 'rspec-rails'
   gem 'sgcop', github: 'SonicGarden/sgcop'
 end
@@ -40,7 +38,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'guard'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
 end
