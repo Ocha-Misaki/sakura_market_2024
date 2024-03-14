@@ -2,10 +2,9 @@ class Posts::LikesController < Users::ApplicationController
   before_action :set_post
 
   def create
-    if current_user.likes.create!(post: @post)
-      LikeMailer.like_confirmation(@post).deliver_later
-      redirect_to root_path, notice: 'Goodしました'
-    end
+    current_user.likes.create!(post: @post)
+    LikeMailer.like_confirmation(@post).deliver_later
+    redirect_to root_path, notice: 'Goodしました'
   end
 
   def destroy
