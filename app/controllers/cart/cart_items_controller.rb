@@ -4,9 +4,8 @@ class Cart::CartItemsController < Users::ApplicationController
   def create
     @cart_item = current_cart.cart_items.find_or_initialize_by(food_id: params[:food_id])
     @cart_item.increment(:quantity, params[:quantity].to_i)
-    if @cart_item.save!
-      redirect_to cart_path, notice: 'カートに追加しました'
-    end
+    @cart_item.save!
+    redirect_to cart_path, notice: 'カートに追加しました'
   end
 
   def update
